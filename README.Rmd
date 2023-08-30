@@ -1,0 +1,35 @@
+---
+output: github_document
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "man/figures/README-",
+  out.width = "100%"
+)
+```
+
+# todobend
+
+<!-- badges: start -->
+<!-- badges: end -->
+
+A todo list backend. Built using [plumber](https://www.rplumber.io/).
+
+## Installation
+
+You can install the development version of todobend from [GitHub](https://github.com/) with:
+
+``` r
+devtools::install_github("kennedymwavu/todobend")
+```
+
+## Usage
+
+```r
+todobend::run_api()
+```
