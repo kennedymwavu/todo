@@ -14,7 +14,7 @@ You can install the development version of todobend from
 [GitHub](https://github.com/) with:
 
 ``` r
-devtools::install_github("kennedymwavu/todobend")
+remotes::install_github("kennedymwavu/todobend")
 ```
 
 ## Usage
