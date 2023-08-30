@@ -1,6 +1,6 @@
 #' Run the api
-#'
 #' @return [plumber::pr_run()]
+#' @export
 run_api <- \() {
   envir <- environment()
   envir$conn <- DBI::dbConnect(drv = RSQLite::SQLite(), Sys.getenv("db_name"))

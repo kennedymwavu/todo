@@ -4,6 +4,7 @@
 #' \href{https://solutions.posit.co/connections/db/best-practices/run-queries-safely/#interpolation-by-hand}{interpolation by hand}
 #' @param conn DB connection
 #' @param todo Name of the todo list
+#' @export
 create_todo <- \(conn, todo) {
   if (DBI::dbExistsTable(conn = conn, name = todo)) {
     stop(sprintf("Todo list '%s' already exists.", todo), call. = FALSE)
@@ -19,6 +20,7 @@ create_todo <- \(conn, todo) {
 #' Show all available todos
 #'
 #' @param conn DB connection
+#' @export
 read_todos <- \(conn) {
   todos <- DBI::dbListTables(conn = conn)
   setdiff(todos, "sqlite_sequence")
@@ -28,6 +30,7 @@ read_todos <- \(conn) {
 #'
 #' @param conn DB connection
 #' @param todo Name of the todo list
+#' @export
 delete_todo <- \(conn, todo) {
   if (!DBI::dbExistsTable(conn = conn, name = todo)) {
     stop(sprintf("Todo list '%s' does not exist.", todo), call. = FALSE)
@@ -40,6 +43,7 @@ delete_todo <- \(conn, todo) {
 #' @param conn DB connection
 #' @param todo Name of the todo list
 #' @param items A character vector of the new todo items
+#' @export
 create_items <- \(conn, todo, items) {
   if (!DBI::dbExistsTable(conn = conn, name = todo)) {
     stop(sprintf("Todo list '%s' does not exist.", todo), call. = FALSE)
@@ -59,6 +63,7 @@ create_items <- \(conn, todo, items) {
 #'
 #' @param conn DB connection
 #' @param todo Name of the todo list
+#' @export
 read_items <- \(conn, todo) {
   if (!DBI::dbExistsTable(conn = conn, name = todo)) {
     stop(sprintf("Todo list '%s' does not exist.", todo), call. = FALSE)
@@ -71,6 +76,7 @@ read_items <- \(conn, todo) {
 #' @param conn DB connection
 #' @param todo Name of the todo list
 #' @param item_id Item id
+#' @export
 read_item <- \(conn, todo, item_id) {
   if (!DBI::dbExistsTable(conn = conn, name = todo)) {
     stop(sprintf("Todo list '%s' does not exist.", todo), call. = FALSE)
@@ -90,6 +96,7 @@ read_item <- \(conn, todo, item_id) {
 #' @param todo Name of the todo list
 #' @param item_id Item id
 #' @param updated_item Updated item
+#' @export
 update_item <- \(conn, todo, item_id, updated_item) {
   if (!DBI::dbExistsTable(conn = conn, name = todo)) {
     stop(sprintf("Todo list '%s' does not exist.", todo), call. = FALSE)
@@ -109,6 +116,7 @@ update_item <- \(conn, todo, item_id, updated_item) {
 #' @param conn DB connection
 #' @param todo Name of the todo list
 #' @param item_ids Ids of the items to delete
+#' @export
 delete_items <- \(conn, todo, item_ids) {
   if (!DBI::dbExistsTable(conn = conn, name = todo)) {
     stop(sprintf("Todo list '%s' does not exist.", todo), call. = FALSE)
@@ -128,6 +136,7 @@ delete_items <- \(conn, todo, item_ids) {
 #'
 #' @param conn DB connection
 #' @param todo Name of the todo list
+#' @export
 delete_all_items <- \(conn, todo) {
   if (!DBI::dbExistsTable(conn = conn, name = todo)) {
     stop(sprintf("Todo list '%s' does not exist.", todo), call. = FALSE)
