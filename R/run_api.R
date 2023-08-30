@@ -16,7 +16,7 @@ run_api <- \() {
     plumber::pr_hook(
       stage = "exit",
       handler = \(req) {
-        DBI::dbDisconnect(conn)
+        DBI::dbDisconnect(envir$conn)
       }
     ) |>
     plumber::pr_run(
