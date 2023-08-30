@@ -8,4 +8,7 @@ plumber::pr(file = "todo.R") |>
       DBI::dbDisconnect(conn)
     }
   ) |>
-  plumber::pr_run(port = 8000)
+  plumber::pr_run(
+    port = 8000,
+    host = "0.0.0.0"
+  )
