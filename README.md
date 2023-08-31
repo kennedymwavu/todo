@@ -8,16 +8,32 @@
 
 A todo list backend. Built using [plumber](https://www.rplumber.io/).
 
+See the frontend [here](https://github.com/kennedymwavu/todofend).
+
 ## Installation
 
-You can install the development version of todobend from
-[GitHub](https://github.com/) with:
+You can install the development version of todobend like so:
 
 ``` r
 remotes::install_github("kennedymwavu/todobend")
 ```
 
-## Usage
+## Environment variables
+
+In your working directory, make sure you have a `.Renviron` file with
+these variables:
+
+``` r
+db_name=the-sqlite-database
+```
+
+For example:
+
+``` r
+db_name=todo.sqlite
+```
+
+## Run api
 
 ``` r
 todobend::run_api()
